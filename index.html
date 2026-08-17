@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicky Hou | Senior Content Strategist & Luxury CRM Specialist</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond (Luxury Display) & Plus Jakarta Sans (Clean Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            bg: 'var(--luxury-bg)',       /* Warm Ivory / Dark Onyx Background */
+                            surface: 'var(--luxury-surface)',  /* Card Surface */
+                            dark: 'var(--luxury-dark)',     /* Rich Text / Dark Tone */
+                            accent: 'var(--luxury-accent)',   /* Muted Luxury Gold */
+                            gold: '#D4AF37',     /* Bright Accent Gold */
+                            sand: 'var(--luxury-sand)',     /* Subtle Neutral Accent */
+                            muted: 'var(--luxury-muted)'    /* Muted Text Grey */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite'
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Variables for Dynamic Light/Dark Theme */
+        :root {
+            --luxury-bg: #FAF8F5;
+            --luxury-surface: #FFFFFF;
+            --luxury-dark: #1C1A18;
+            --luxury-accent: #C5A880;
+            --luxury-sand: #F0EBE1;
+            --luxury-muted: #6E6B65;
+        }
+
+        html.dark {
+            --luxury-bg: #121110;
+            --luxury-surface: #1C1A18;
+            --luxury-dark: #F5F2ED;
+            --luxury-accent: #D4AF37;
+            --luxury-sand: #2A2724;
+            --luxury-muted: #A39E93;
+        }
+
+        /* Custom Scrollbar & Luxury Glow Effects */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 4px;
+        }
+        .luxury-gradient-text {
+            background: linear-gradient(135deg, #1C1A18 30%, #C5A880 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #C5A880 0%, #B08E60 100%);
+        }
+        .luxury-card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(28, 26, 24, 0.05);
+        }
+        .luxury-border {
+            border: 1px solid rgba(197, 168, 128, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-luxury-bg text-luxury-dark font-sans antialiased selection:bg-luxury-accent/30 selection:text-luxury-dark">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-luxury-bg/85 border-b border-luxury-sand/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <!-- Brand Logo Mark -->
+            <a href="#hero" class="group flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-luxury-accent/40 flex items-center justify-center font-serif text-lg font-bold text-luxury-dark group-hover:border-luxury-accent transition-colors">
+                    VH
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl tracking-wider font-semibold uppercase leading-none">Vicky Hou</span>
+                    <span class="text-[10px] tracking-[0.2em] text-luxury-accent uppercase font-medium mt-1">Luxury Content Strategist</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs tracking-[0.15em] uppercase font-medium text-luxury-dark/80">
+                <a href="#about" class="hover:text-luxury-accent transition-colors py-1">About</a>
+                <a href="#clients" class="hover:text-luxury-accent transition-colors py-1">Brands</a>
+                <a href="#expertise" class="hover:text-luxury-accent transition-colors py-1">Expertise</a>
+                <a href="#framework" class="hover:text-luxury-accent transition-colors py-1">Methodology</a>
+                <a href="#impact" class="hover:text-luxury-accent transition-colors py-1">Impact</a>
+            </nav>
+
+            <!-- CTA & Theme/Audio Controls -->
+            <div class="hidden md:flex items-center space-x-3">
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-full border border-luxury-sand bg-luxury-surface text-luxury-dark hover:border-luxury-accent flex items-center justify-center transition-all duration-300" title="Switch Theme (Light/Dark)">
+                    <i class="theme-icon fa-solid fa-moon text-sm"></i>
+                </button>
+
+                <!-- Audio Toggle Button -->
+                <button onclick="toggleMusic()" class="music-toggle-btn px-4 py-2 rounded-full border border-luxury-sand bg-luxury-surface text-luxury-dark hover:border-luxury-accent text-xs font-medium tracking-wider flex items-center gap-2 transition-all duration-300" title="Toggle Background Music">
+                    <i class="music-icon fa-solid fa-music text-xs"></i>
+                    <span class="music-status-text uppercase text-[10px] tracking-widest">Music</span>
+                </button>
+
+                <!-- Contact CTA Button -->
+                <a href="#contact" class="px-6 py-2.5 rounded-full border border-luxury-dark text-luxury-dark text-xs tracking-widest uppercase hover:bg-luxury-dark hover:text-white transition-all duration-300">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden p-2 text-luxury-dark focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-luxury-bg border-b border-luxury-sand px-6 py-6 transition-all">
+            <div class="flex flex-col space-y-4 text-sm uppercase tracking-wider font-medium">
+                <a href="#about" class="mobile-link py-2 border-b border-luxury-sand/50">About</a>
+                <a href="#clients" class="mobile-link py-2 border-b border-luxury-sand/50">Brands</a>
+                <a href="#expertise" class="mobile-link py-2 border-b border-luxury-sand/50">Expertise</a>
+                <a href="#framework" class="mobile-link py-2 border-b border-luxury-sand/50">Methodology</a>
+                <a href="#impact" class="mobile-link py-2 border-b border-luxury-sand/50">Impact</a>
+                
+                <!-- Mobile Audio & Theme Controls -->
+                <div class="flex items-center justify-between pt-2">
+                    <button onclick="toggleTheme()" class="px-4 py-2 rounded-full border border-luxury-sand bg-luxury-surface text-xs flex items-center gap-2">
+                        <i class="theme-icon fa-solid fa-moon text-xs"></i>
+                        <span class="text-[11px]">Theme</span>
+                    </button>
+                    <button onclick="toggleMusic()" class="music-toggle-btn px-4 py-2 rounded-full border border-luxury-sand bg-luxury-surface text-xs flex items-center gap-2">
+                        <i class="music-icon fa-solid fa-music text-xs"></i>
+                        <span class="music-status-text text-[11px]">Music</span>
+                    </button>
+                </div>
+
+                <a href="#contact" class="mobile-link py-3 mt-2 text-center gold-gradient-bg text-white rounded-full font-semibold">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" loop src="https://img.ai365.fans/artworks/185667a4-8aaf-4beb-b2a0-6ed668522d92/4gp4gvx43nf.mp3" preload="auto"></audio>
+
+    <!-- Floating Quick Control Dock (Bottom-Right) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+        <button onclick="toggleMusic()" class="music-toggle-btn w-12 h-12 rounded-full gold-gradient-bg text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" title="Toggle Music">
+            <i class="music-icon fa-solid fa-music text-base"></i>
+        </button>
+        <button onclick="toggleTheme()" class="w-12 h-12 rounded-full bg-luxury-surface text-luxury-dark border border-luxury-sand shadow-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" title="Toggle Theme">
+            <i class="theme-icon fa-solid fa-moon text-base"></i>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <!-- Subtle Glow Background Elements -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-luxury-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Experience Tag Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-luxury-accent/30 bg-luxury-surface/80 backdrop-blur text-xs tracking-widest uppercase text-luxury-dark">
+                        <span class="w-2 h-2 rounded-full bg-luxury-accent animate-pulse"></span>
+                        Vicky Hou • Senior Content Strategist
+                    </div>
+
+                    <!-- Main Luxury Headline -->
+                    <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-light leading-[1.15] text-luxury-dark">
+                        Bridging <span class="italic font-normal luxury-gradient-text">Content Strategy</span> with High-End Business Impact.
+                    </h1>
+
+                    <!-- Paragraph Subtitle -->
+                    <p class="text-base sm:text-lg text-luxury-muted max-w-2xl font-light leading-relaxed">
+                        With over 7 years of expertise in integrated campaigns, digital strategy, and Social CRM communication for prestige luxury and premium beauty brands. Turning brand storytelling into measurable performance.
+                    </p>
+
+                    <!-- CTAs & Action Area -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#contact" class="px-8 py-4 rounded-full gold-gradient-bg text-white text-xs tracking-widest uppercase font-semibold hover:shadow-lg hover:shadow-luxury-accent/20 transition-all duration-300">
+                            Initiate Collaboration
+                        </a>
+                        <a href="#about" class="px-8 py-4 rounded-full border border-luxury-sand bg-luxury-surface hover:border-luxury-accent text-luxury-dark text-xs tracking-widest uppercase font-medium transition-all duration-300">
+                            Explore Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Portrait & Highlight Stats Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Profile Card -->
+                    <div class="relative group">
+                        <div class="absolute -inset-1 gold-gradient-bg rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                        <div class="relative bg-luxury-surface rounded-3xl overflow-hidden luxury-border luxury-card-shadow">
+                            <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/185667a4-8aaf-4beb-b2a0-6ed668522d92/7vwlmgfysia.PNG" 
+                                 alt="Vicky Hou" 
+                                 class="w-full h-[380px] sm:h-[460px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                 style="object-position: 50% 15%;"
+                                 onerror="this.src='https://placehold.co/600x800/1C1A18/C5A880?text=Vicky+Hou'" />
+                            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-luxury-dark/90 via-luxury-dark/40 to-transparent p-6 text-white">
+                                <p class="font-serif text-2xl font-semibold tracking-wide">Vicky Hou</p>
+                                <p class="text-xs uppercase tracking-widest text-luxury-accent mt-0.5">Luxury Content & Social CRM Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Highlight Stats -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-luxury-surface p-4 rounded-2xl luxury-border text-center luxury-card-shadow">
+                            <p class="font-serif text-3xl font-light text-luxury-dark">7+ Years</p>
+                            <p class="text-[10px] uppercase tracking-widest text-luxury-muted mt-1">Prestige Experience</p>
+                        </div>
+                        <div class="bg-luxury-surface p-4 rounded-2xl luxury-border text-center luxury-card-shadow">
+                            <p class="font-serif text-3xl font-light text-luxury-dark">Tier-1</p>
+                            <p class="text-[10px] uppercase tracking-widest text-luxury-muted mt-1">Global Luxury Brands</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Ticker / Brand Showcase Section -->
+    <section id="clients" class="py-12 bg-luxury-dark text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mb-6 text-center">
+            <span class="text-[11px] uppercase tracking-[0.3em] text-luxury-accent font-medium">Selected Brand Collaborations</span>
+        </div>
+
+        <!-- Continuous Ticker Container -->
+        <div class="flex overflow-hidden relative w-full">
+            <div class="flex space-x-12 sm:space-x-20 whitespace-nowrap animate-marquee items-center py-4">
+                <!-- Brand Items -->
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">DIOR</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">ESTÉE LAUDER</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">HERMÈS</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">DE BEERS</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">MONTBLANC</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">GUERLAIN</span>
+                <span class="text-luxury-accent">•</span>
+                
+                <!-- Duplicate Set for Seamless Loop -->
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">DIOR</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">ESTÉE LAUDER</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">HERMÈS</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">DE BEERS</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">MONTBLANC</span>
+                <span class="text-luxury-accent">•</span>
+                <span class="font-serif text-2xl sm:text-3xl tracking-widest font-light uppercase opacity-80 hover:opacity-100 hover:text-luxury-accent transition-all">GUERLAIN</span>
+                <span class="text-luxury-accent">•</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                
+                <!-- Left Title Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-[0.25em] text-luxury-accent font-semibold block">About Vicky Hou</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light text-luxury-dark leading-tight">
+                        Connecting Content Vision with Business Objectives.
+                    </h2>
+                    <div class="w-16 h-[2px] bg-luxury-accent"></div>
+                    
+                    <div class="p-6 rounded-2xl bg-luxury-sand/50 border border-luxury-sand space-y-3">
+                        <i class="fa-solid fa-quote-left text-2xl text-luxury-accent"></i>
+                        <p class="font-serif italic text-lg text-luxury-dark">
+                            "Ensuring brand consistency while optimizing for performance across luxury touchpoints."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Detailed Narrative -->
+                <div class="lg:col-span-7 space-y-6 text-base text-luxury-muted font-light leading-relaxed">
+                    <p class="text-lg text-luxury-dark font-normal">
+                        I am <strong class="text-luxury-dark font-semibold">Vicky Hou</strong>, a Content Strategist with over 7 years of deep-domain experience in content strategy, integrated campaigns, and digital and Social CRM communication, specializing in prestige luxury and premium beauty brands.
+                    </p>
+                    <p>
+                        Throughout my career, I have successfully connected content strategy with overarching business objectives, ensuring brand consistency while optimizing for performance. My experience working with premier global houses such as <strong class="text-luxury-dark font-medium">Hermès, Dior, Estée Lauder, De Beers, Montblanc,</strong> and <strong class="text-luxury-dark font-medium">Guerlain</strong> has equipped me with the skills to manage end-to-end content planning—aligning key messages with conversion goals and driving measurable performance improvements.
+                    </p>
+                    <p>
+                        I hold a proven track record in cross-functional collaboration, coordinating seamlessly across creative, media, and e-commerce teams to enhance project execution efficiency and elevate content quality.
+                    </p>
+                    <p>
+                        My data-aware mindset enables continuous refinement of content priorities and strategies by leveraging actionable analytics. Furthermore, I am adept at guiding agency partners to elevate output quality, maintaining absolute fidelity to the brand's heritage.
+                    </p>
+                    <p class="text-luxury-dark font-normal pt-2">
+                        In this role, my objective is to ensure that brand messaging remains consistent and impactful across all channels, while bolstering the linkage between content output and measurable business success.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise & Capabilities Section -->
+    <section id="expertise" class="py-24 bg-luxury-sand/30 border-y border-luxury-sand/80">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-luxury-accent font-semibold">Core Competencies</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-light text-luxury-dark">Core Strategic Pillars</h2>
+                <p class="text-luxury-muted font-light text-sm sm:text-base">
+                    A holistic approach to luxury communication that blends creative elegance with data precision.
+                </p>
+            </div>
+
+            <!-- Pillars Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-luxury-surface p-8 rounded-2xl luxury-border luxury-card-shadow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-luxury-sand/60 flex items-center justify-center text-luxury-dark group-hover:bg-luxury-dark group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-compass text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-luxury-dark">Content Strategy & Planning</h3>
+                        <p class="text-xs sm:text-sm text-luxury-muted leading-relaxed font-light">
+                            End-to-end editorial mapping that translates global brand DNA into local market resonance while maintaining absolute consistency.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-luxury-dark/80 space-y-2 pt-4 border-t border-luxury-sand/60">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Integrated Campaigns</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Narrative Development</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Content Calendaring</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-luxury-surface p-8 rounded-2xl luxury-border luxury-card-shadow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-luxury-sand/60 flex items-center justify-center text-luxury-dark group-hover:bg-luxury-dark group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-users-viewfinder text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-luxury-dark">Digital & Social CRM</h3>
+                        <p class="text-xs sm:text-sm text-luxury-muted leading-relaxed font-light">
+                            Crafting tailored luxury customer journeys across WeChat, LINE, Instagram, and VIP loyalty touchpoints to foster lifetime advocacy.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-luxury-dark/80 space-y-2 pt-4 border-t border-luxury-sand/60">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Social CRM Ecosystems</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> VIP Nurturing Journeys</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Omni-channel Alignment</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-luxury-surface p-8 rounded-2xl luxury-border luxury-card-shadow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-luxury-sand/60 flex items-center justify-center text-luxury-dark group-hover:bg-luxury-dark group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-luxury-dark">Data-Aware Optimization</h3>
+                        <p class="text-xs sm:text-sm text-luxury-muted leading-relaxed font-light">
+                            Leveraging performance metrics and audience insights to continually optimize conversion links, ROI, and engagement depth.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-luxury-dark/80 space-y-2 pt-4 border-t border-luxury-sand/60">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Performance Analytics</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Conversion Optimization</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Audience Segmentation</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-luxury-surface p-8 rounded-2xl luxury-border luxury-card-shadow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-luxury-sand/60 flex items-center justify-center text-luxury-dark group-hover:bg-luxury-dark group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-handshake-angle text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-medium text-luxury-dark">Cross-Functional Leadership</h3>
+                        <p class="text-xs sm:text-sm text-luxury-muted leading-relaxed font-light">
+                            Orchestrating internal stakeholders and directing external agency partners to elevate execution efficiency and craftsmanship.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-luxury-dark/80 space-y-2 pt-4 border-t border-luxury-sand/60">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Agency Partner Direction</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Multi-team Alignment</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-luxury-accent text-[10px]"></i> Quality Assurance</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Methodology Interactive Section -->
+    <section id="framework" class="py-24">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Title & Tabs -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-[0.25em] text-luxury-accent font-semibold block">Execution Framework</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light text-luxury-dark">How Strategy Meets Execution</h2>
+                    <p class="text-sm text-luxury-muted leading-relaxed font-light">
+                        Click through the interactive workflow stages to explore how high-level brand directives are translated into high-converting luxury assets.
+                    </p>
+
+                    <!-- Interactive Workflow Tab Buttons -->
+                    <div class="space-y-3 pt-4" id="workflow-tabs">
+                        <button onclick="switchTab(0)" class="tab-btn active w-full text-left p-4 rounded-xl border transition-all duration-300 border-luxury-dark bg-luxury-dark text-white">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase tracking-wider font-semibold">Stage 01: Brand & Objectives Alignment</span>
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="switchTab(1)" class="tab-btn w-full text-left p-4 rounded-xl border border-luxury-sand bg-luxury-surface text-luxury-dark hover:border-luxury-accent transition-all duration-300">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase tracking-wider font-semibold">Stage 02: Omni-Channel Planning</span>
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="switchTab(2)" class="tab-btn w-full text-left p-4 rounded-xl border border-luxury-sand bg-luxury-surface text-luxury-dark hover:border-luxury-accent transition-all duration-300">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase tracking-wider font-semibold">Stage 03: Agency & Cross-Team Leadership</span>
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </div>
+                        </button>
+
+                        <button onclick="switchTab(3)" class="tab-btn w-full text-left p-4 rounded-xl border border-luxury-sand bg-luxury-surface text-luxury-dark hover:border-luxury-accent transition-all duration-300">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase tracking-wider font-semibold">Stage 04: Data Loop & CRM Optimization</span>
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Display Card showing selected tab detail -->
+                <div class="lg:col-span-7">
+                    <div class="bg-luxury-surface rounded-2xl p-8 sm:p-12 luxury-border luxury-card-shadow min-h-[420px] flex flex-col justify-between relative overflow-hidden" id="tab-content-container">
+                        
+                        <!-- Accent Watermark Icon -->
+                        <i id="tab-icon-watermark" class="fa-solid fa-compass absolute -bottom-10 -right-10 text-[180px] text-luxury-sand/30 pointer-events-none"></i>
+
+                        <div class="space-y-6 relative z-10">
+                            <div class="flex items-center gap-3">
+                                <span id="tab-step-badge" class="px-3 py-1 bg-luxury-sand rounded-full text-[10px] font-bold uppercase tracking-widest text-luxury-dark">Step 01</span>
+                                <span id="tab-subtitle" class="text-xs uppercase tracking-widest text-luxury-accent font-medium">Foundation</span>
+                            </div>
+
+                            <h3 id="tab-title" class="font-serif text-2xl sm:text-3xl font-normal text-luxury-dark">
+                                Aligning Creative Directives with Conversion Goals
+                            </h3>
+
+                            <p id="tab-desc" class="text-sm sm:text-base text-luxury-muted leading-relaxed font-light">
+                                Establishing a tight bond between headquarters' global storytelling and localized sales targets. Every campaign starts by defining key message priorities, ensuring high brand prestige while establishing measurable KPIs.
+                            </p>
+
+                            <div class="pt-4 border-t border-luxury-sand space-y-3">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-luxury-dark">Key Deliverables:</h4>
+                                <div id="tab-deliverables" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-luxury-muted">
+                                    <div class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-luxury-accent"></i> Global Brand Brief Translation</div>
+                                    <div class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-luxury-accent"></i> KPI & Conversion Architecture</div>
+                                    <div class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-luxury-accent"></i> Content Matrix Development</div>
+                                    <div class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-luxury-accent"></i> Channel Priority Mapping</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer indicator inside card -->
+                        <div class="pt-8 flex items-center justify-between text-xs text-luxury-accent font-medium relative z-10">
+                            <span>Workflow Stage Highlight</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Business Impact Showcase Section -->
+    <section id="impact" class="py-24 bg-luxury-dark text-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                <div class="lg:col-span-8 space-y-4">
+                    <span class="text-xs uppercase tracking-[0.25em] text-luxury-accent font-semibold block">Proven Record</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light leading-tight">
+                        Measurable Business Success Across Channels
+                    </h2>
+                </div>
+                <div class="lg:col-span-4 text-left lg:text-right">
+                    <p class="text-xs text-luxury-sand/70 uppercase tracking-widest font-light">
+                        Consistency • Quality • Conversion
+                    </p>
+                </div>
+            </div>
+
+            <!-- Value Impact Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 space-y-4 hover:border-luxury-accent/50 transition-colors">
+                    <div class="text-luxury-accent font-serif text-4xl">01</div>
+                    <h3 class="font-serif text-xl font-normal">Brand Consistency at Scale</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-light">
+                        Guaranteed seamless luxury brand storytelling across digital, social CRM, and retail touchpoints, safeguarding heritage while adapting to modern media consumption.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 space-y-4 hover:border-luxury-accent/50 transition-colors">
+                    <div class="text-luxury-accent font-serif text-4xl">02</div>
+                    <h3 class="font-serif text-xl font-normal">Optimized Agency Output</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-light">
+                        Adept at directing and elevating agency creative output, streamlining feedback cycles, and ensuring high craft standards with optimized budget efficiency.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 space-y-4 hover:border-luxury-accent/50 transition-colors">
+                    <div class="text-luxury-accent font-serif text-4xl">03</div>
+                    <h3 class="font-serif text-xl font-normal">Data-Informed ROI</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-light">
+                        Continuous post-campaign analytics integration to iterate content formats, enhance audience retention, and bolster measurable business return on content investment.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 md:py-32 bg-luxury-bg relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="max-w-4xl mx-auto bg-luxury-surface rounded-3xl p-8 sm:p-16 luxury-border luxury-card-shadow">
+                <div class="text-center space-y-4 mb-12">
+                    <span class="text-xs uppercase tracking-[0.25em] text-luxury-accent font-semibold">Connect</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light text-luxury-dark">Let's Discuss Your Brand Vision</h2>
+                    <p class="text-sm sm:text-base text-luxury-muted font-light max-w-xl mx-auto">
+                        Seeking strategic leadership for your luxury brand's content, social CRM, or integrated campaign objectives? Get in touch today.
+                    </p>
+
+                    <!-- Social Media & Personal Website Links -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+                        <a href="https://sites.google.com/view/vkiosk/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-luxury-sand bg-luxury-bg hover:border-luxury-accent text-luxury-dark text-xs font-medium transition-all duration-300 hover:shadow-md">
+                            <i class="fa-solid fa-globe text-luxury-accent"></i>
+                            <span>Personal Website</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-luxury-muted"></i>
+                        </a>
+                        <a href="https://www.instagram.com/vikiiihou/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-luxury-sand bg-luxury-bg hover:border-luxury-accent text-luxury-dark text-xs font-medium transition-all duration-300 hover:shadow-md">
+                            <i class="fa-brands fa-instagram text-luxury-accent"></i>
+                            <span>@vikiiihou</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-luxury-muted"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-luxury-dark font-medium">Your Name</label>
+                            <input type="text" required placeholder="e.g. Eleanor Vance" class="w-full px-4 py-3 rounded-xl bg-luxury-bg border border-luxury-sand text-sm focus:outline-none focus:border-luxury-accent transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-luxury-dark font-medium">Email Address</label>
+                            <input type="email" required placeholder="e.g. eleanor@luxurybrand.com" class="w-full px-4 py-3 rounded-xl bg-luxury-bg border border-luxury-sand text-sm focus:outline-none focus:border-luxury-accent transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-wider text-luxury-dark font-medium">Subject / Brand</label>
+                        <input type="text" placeholder="e.g. Luxury Content Strategy Collaboration" class="w-full px-4 py-3 rounded-xl bg-luxury-bg border border-luxury-sand text-sm focus:outline-none focus:border-luxury-accent transition-colors">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-wider text-luxury-dark font-medium">Message</label>
+                        <textarea rows="4" required placeholder="Tell me about your brand goals or upcoming initiatives..." class="w-full px-4 py-3 rounded-xl bg-luxury-bg border border-luxury-sand text-sm focus:outline-none focus:border-luxury-accent transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl gold-gradient-bg text-white text-xs tracking-widest uppercase font-semibold hover:shadow-lg transition-all duration-300">
+                        Send Message
+                    </button>
+                </form>
+
+                <!-- Feedback Message Box (Replaces alert) -->
+                <div id="form-toast" class="hidden mt-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs text-center font-medium">
+                    <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your message has been sent successfully. I will get back to you shortly.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-luxury-dark text-white border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full border border-luxury-accent flex items-center justify-center font-serif text-sm font-bold text-luxury-accent">
+                    VH
+                </div>
+                <span class="font-serif text-lg tracking-wider">Vicky Hou</span>
+            </div>
+
+            <p class="text-xs text-gray-400 font-light">
+                &copy; <span id="year"></span> Vicky Hou. Prestige Luxury & Beauty Communications.
+            </p>
+
+            <div class="flex items-center space-x-6 text-sm text-gray-400">
+                <a href="https://sites.google.com/view/vkiosk/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener noreferrer" class="hover:text-luxury-accent transition-colors flex items-center gap-2 text-xs" title="Personal Website">
+                    <i class="fa-solid fa-globe text-base"></i>
+                    <span class="hidden sm:inline">Website</span>
+                </a>
+                <a href="https://www.instagram.com/vikiiihou/" target="_blank" rel="noopener noreferrer" class="hover:text-luxury-accent transition-colors flex items-center gap-2 text-xs" title="Instagram">
+                    <i class="fa-brands fa-instagram text-base"></i>
+                    <span class="hidden sm:inline">Instagram</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client-Side JavaScript -->
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Drawer Toggle Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Tab Data for Methodology Framework Tool
+        const tabData = [
+            {
+                badge: 'Step 01',
+                subtitle: 'Foundation',
+                title: 'Aligning Creative Directives with Conversion Goals',
+                desc: 'Establishing a tight bond between headquarters\' global storytelling and localized sales targets. Every campaign starts by defining key message priorities, ensuring high brand prestige while establishing measurable KPIs.',
+                deliverables: [
+                    'Global Brand Brief Translation',
+                    'KPI & Conversion Architecture',
+                    'Content Matrix Development',
+                    'Channel Priority Mapping'
+                ],
+                iconClass: 'fa-solid fa-compass'
+            },
+            {
+                badge: 'Step 02',
+                subtitle: 'Distribution',
+                title: 'Omni-Channel Content & Social CRM Integration',
+                desc: 'Designing synchronized content rollouts across luxury channels. Integrating tailored journeys on WeChat, LINE, e-Commerce portals, and VIP Social CRM to retain luxury clients and drive repetitive engagement.',
+                deliverables: [
+                    'Social CRM Journey Blueprinting',
+                    'VIP Membership Segment Content',
+                    'Integrated Campaign Calendars',
+                    'Localized Luxury Copywriting'
+                ],
+                iconClass: 'fa-solid fa-layer-group'
+            },
+            {
+                badge: 'Step 03',
+                subtitle: 'Execution',
+                title: 'Agency Leadership & Cross-Functional Orchestration',
+                desc: 'Coordinating smoothly with PR, E-Commerce, Media, and external Agency partners. Providing strict creative oversight and feedback to elevate output quality without compromising delivery speed.',
+                deliverables: [
+                    'Agency Creative Briefing & Direction',
+                    'Cross-departmental Workflows',
+                    'Quality & Asset Guardrails',
+                    'Production Efficiency Audits'
+                ],
+                iconClass: 'fa-solid fa-handshake'
+            },
+            {
+                badge: 'Step 04',
+                subtitle: 'Optimization',
+                title: 'Data-Aware Insights & Performance Refinement',
+                desc: 'Analyzing engagement metrics, click-through rates, and conversion paths. Leveraging findings to continually refine message placement, creative assets, and future content investments.',
+                deliverables: [
+                    'Post-Campaign Analytics Reports',
+                    'Conversion Funnel Optimization',
+                    'A/B Creative Content Testing',
+                    'Executive ROI Strategy Summaries'
+                ],
+                iconClass: 'fa-solid fa-chart-pie'
+            }
+        ];
+
+        // Function to switch Methodology Tabs
+        function switchTab(index) {
+            const buttons = document.querySelectorAll('#workflow-tabs .tab-btn');
+            buttons.forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.className = 'tab-btn active w-full text-left p-4 rounded-xl border transition-all duration-300 border-luxury-dark bg-luxury-dark text-white';
+                } else {
+                    btn.className = 'tab-btn w-full text-left p-4 rounded-xl border border-luxury-sand bg-luxury-surface text-luxury-dark hover:border-luxury-accent transition-all duration-300';
+                }
+            });
+
+            const data = tabData[index];
+            document.getElementById('tab-step-badge').textContent = data.badge;
+            document.getElementById('tab-subtitle').textContent = data.subtitle;
+            document.getElementById('tab-title').textContent = data.title;
+            document.getElementById('tab-desc').textContent = data.desc;
+            
+            // Render Deliverables
+            const delivContainer = document.getElementById('tab-deliverables');
+            delivContainer.innerHTML = data.deliverables.map(item => `
+                <div class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-luxury-accent"></i> ${item}</div>
+            `).join('');
+
+            // Update Watermark Icon
+            document.getElementById('tab-icon-watermark').className = `${data.iconClass} absolute -bottom-10 -right-10 text-[180px] text-luxury-sand/30 pointer-events-none transition-all duration-500`;
+        }
+
+        // Contact Form Submission Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const toast = document.getElementById('form-toast');
+            toast.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Background Music Control
+        const bgMusic = document.getElementById('bg-music');
+        let isMusicPlaying = false;
+
+        function toggleMusic() {
+            const musicBtns = document.querySelectorAll('.music-toggle-btn');
+            
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                isMusicPlaying = false;
+                musicBtns.forEach(btn => {
+                    const icon = btn.querySelector('.music-icon');
+                    const text = btn.querySelector('.music-status-text');
+                    if (icon) icon.className = 'music-icon fa-solid fa-music text-xs';
+                    if (text) text.textContent = 'Music';
+                });
+            } else {
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicBtns.forEach(btn => {
+                        const icon = btn.querySelector('.music-icon');
+                        const text = btn.querySelector('.music-status-text');
+                        if (icon) icon.className = 'music-icon fa-solid fa-compact-disc text-xs animate-spin-slow text-luxury-accent';
+                        if (text) text.textContent = 'Playing';
+                    });
+                }).catch(err => {
+                    console.log('Audio playback initiated:', err);
+                });
+            }
+        }
+
+        // Dark / Light Theme Toggle
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            const themeIcons = document.querySelectorAll('.theme-icon');
+            
+            themeIcons.forEach(icon => {
+                if (isDark) {
+                    icon.className = 'theme-icon fa-solid fa-sun text-luxury-accent';
+                } else {
+                    icon.className = 'theme-icon fa-solid fa-moon text-luxury-dark';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
